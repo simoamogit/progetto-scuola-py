@@ -32,8 +32,7 @@ MY_WHATSAPP_NUMBER = os.environ.get('MY_WHATSAPP_NUMBER')  # il tuo numero in fo
 twilio_client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
 # Crea il database (se non esiste)
-@app.before_first_request
-def create_tables():
+with app.app_context():
     db.create_all()
 
 # Rotta principale: mostra una tabella con le verifiche
