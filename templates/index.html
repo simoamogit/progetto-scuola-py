@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Planner Scolastico 😎📚</title>
+</head>
+<body>
+    <h1>Planner Scolastico 😎📚</h1>
+    <a href="{{ url_for('aggiungi') }}">➕ Aggiungi una verifica</a>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Materia</th>
+                <th>Data</th>
+                <th>Ora</th>
+                <th>Descrizione</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for v in verifiche %}
+            <tr>
+                <td>{{ v.id }}</td>
+                <td>{{ v.materia }}</td>
+                <td>{{ v.data }}</td>
+                <td>{{ v.ora.strftime('%H:%M') }}</td>
+                <td>{{ v.descrizione }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
