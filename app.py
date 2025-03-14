@@ -58,7 +58,7 @@ def aggiungi():
         db.session.add(nuova_verifica)
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('aggiungi.html')
+    return render_template('\templates\aggiungi.html')
 
 # API endpoint per aggiungere una verifica (JSON)
 @app.route('/api/verifiche', methods=['POST'])
