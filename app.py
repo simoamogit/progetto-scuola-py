@@ -42,7 +42,7 @@ def index():
     return render_template('index.html', verifiche=verifiche)
 
 # Rotta per aggiungere una verifica tramite form web
-@app.route('/aggiungi', methods=['GET', 'POST'])
+@app.route('/aggiungiverifiche', methods=['GET', 'POST'])
 def aggiungi():
     if request.method == 'POST':
         materia = request.form['materia']
