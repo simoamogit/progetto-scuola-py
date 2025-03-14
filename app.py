@@ -42,7 +42,7 @@ def index():
     return render_template('index.html', verifiche=verifiche)
 
 # Rotta per aggiungere una verifica tramite form web
-@app.route('/aggiungiverifiche', methods=['GET', 'POST'])
+@app.route('/aggiungi', methods=['GET', 'POST'])
 def aggiungi():
     if request.method == 'POST':
         materia = request.form['materia']
@@ -58,7 +58,8 @@ def aggiungi():
         db.session.add(nuova_verifica)
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('\templates\aggiungi.html')
+        print("Route /aggiungi chiamata!") # Debug
+    return render_template('aggiungi.html')
 
 # API endpoint per aggiungere una verifica (JSON)
 @app.route('/api/verifiche', methods=['POST'])
